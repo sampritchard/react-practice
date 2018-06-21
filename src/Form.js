@@ -1,9 +1,10 @@
 import React from 'react';
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
 
 export default class Form extends React.Component {
     state = {
-        firstName: '',
-        lastName: '',
+        name: '',
         email: '',
         password: ''
     }
@@ -12,8 +13,7 @@ export default class Form extends React.Component {
         e.preventDefault();
         console.log(this.state);
         this.setState({
-            firstName: '',
-            lastName: '',
+            name: '',
             email: '',
             password: ''
         })
@@ -22,32 +22,31 @@ export default class Form extends React.Component {
     render() {
         return (
             <form>
-                <input 
-                placeholder="First Name" 
-                value={this.state.firstName} 
-                onChange={e => this.setState({ firstName: e.target.value })} 
+                <TextField
+                    label="Name"
+                    floatingLabelText="Name"
+                    value={this.state.name} 
+                    onChange={e => this.setState({ name: e.target.value })} 
+                    floatingLabelFixed
                 />
-                <br />
-                <input 
-                placeholder="Last Name" 
-                value={this.state.lastName} 
-                onChange={e => this.setState({ lastName: e.target.value })} 
-                />
-                <br />                
-                <input 
-                placeholder="Email" 
-                value={this.state.email} 
-                onChange={e => this.setState({ email: e.target.value })} 
+                <br />        
+                <TextField
+                    label="Email"
+                    floatingLabelText="Email"
+                    value={this.state.email} 
+                    onChange={e => this.setState({ email: e.target.value })} 
+                    floatingLabelFixed
                 />
                 <br />                
-                <input 
-                placeholder="Password"
-                type="password"
-                value={this.state.password} 
-                onChange={e => this.setState({ password: e.target.value })} 
+                <TextField
+                    label="Password"
+                    floatingLabelText="Password"
+                    value={this.state.password} 
+                    onChange={e => this.setState({ password: e.target.value })} 
+                    floatingLabelFixed
                 />
                 <br />                
-                <button onClick={ e => this.onSubmit(e) }>Submit</button>
+                <Button onClick={ e => this.onSubmit(e) }>Submit</Button>
             </form>
         )
     }
